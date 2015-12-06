@@ -101,20 +101,26 @@ do {
 v': v' =(−Q + 4*R + S * (n−3))/n
 
 where Q, R and S are:
- a. Q is the average of the new face points of all the faces connected to the vertex 
- b. R is the average of the new edge points of all the edges connected o the vertex
- c. S is the given vertex and n is its valence
+* Q is the average of the new face points of all the faces connected to the vertex 
+* R is the average of the new edge points of all the edges connected o the vertex
+* S is the given vertex and n is its valence
 
 If the vertex was a boundary vertex then the rule is simply:
-    v' = S/2 + M/4 
+v' = S/2 + M/4 
 
 where S and M are:
- a. M is the average of the new edge points of all the edges connected o the vertex
- b. S is the given vertex
+* M is the average of the new edge points of all the edges connected o the vertex
+* S is the given vertex
 
-4. For each face in the mesh we connect the face points calculated in step 1 to the new edge points calculated in step 2
+<p align="center"><img src="https://github.com/fbroom/subdivision-algorithms/blob/master/images/cc-vertex.png" width="250"></p>
 
-5. We connect each new vertex v' created in step 3 to the new edge points created in step 2
+
+* For each face in the mesh we connect the face points calculated in the first two steps
+
+* We connect each new vertex v' created in step 3 to the new edge points created in step 2
+
+<p align="center"><img src="https://github.com/fbroom/subdivision-algorithms/blob/master/images/cc-final.png" width="250"></p>
+
 
 #### Results ####
 
