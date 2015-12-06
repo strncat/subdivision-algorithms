@@ -3,12 +3,13 @@ Implementation of Subdivison Algorithms
 
 #### Mesh Representation : Half Edge Data Structure ####
 
-In order to be able to implement the subdivision algorithms, a flexible and fast data structure was needed. We need to be 
-able to query all the adjacent faces to a vertex or all the vertices in face for example. The half edge data structure was used for this project.
-It is an adge based data structure where all the connectivity information is stored in the half edge. 
-Both Pixar’s OpenSubDiv and OpenMesh use the half edge data structure 
+<p align="center"><img src="https://github.com/fbroom/subdivision-algorithms/blob/master/images/ds.png" width="300"></p>
 
-# Outline
+A flexible and fast data structure is needed to implement any subdivision algorithm since we need the ability to make queries like finding all the adjacent faces to a vertex or all the vertices in a face. The half edge data structure was used for this project. It is combact with no redundancy. It also provides linear time access to all the adjaceny information. It is an adge based data structure where all the connectivity information is stored in the half edge. Both Pixar’s OpenSubDiv and OpenMesh (http://www.openmesh.org/Daily-Builds/Doc/a00016.html) use the half edge data structure.
+
+#### Outline ####
+
+A mesh contains the following:
 
 ```
 class Mesh {
@@ -18,7 +19,7 @@ class Mesh {
 }
 ```
 
-1. Vertex: references the the outgoing half edge that starts at this vertex
+* Vector of vertices where each vertex references the the outgoing half edge that starts at this vertex
 
 ```
 struct Vertex {
@@ -30,7 +31,7 @@ struct Vertex {
 };
 ```
 
-2. Face: references one of the half edges belonging to that faces
+* Vector of faces where each face references one of the half edges belonging to that faces
 
 ```
 struct Face {
@@ -39,13 +40,12 @@ struct Face {
 };
 ```
 
-3. Half Edge: references:
- a. The vertex it is pointing at
- b. The face it belongs to
- c. The next half edge (counter clockwise)
- d. The opposite or twin/pair half edge
- e. For my implementation I also added a pointer to the previous edge which will make 
-traversal easier for finding the boundary edges of a vertex
+* a vector of half edges where each half edge references:
+ * The vertex it is pointing at
+ * The face it belongs to
+ * The next half edge (counter clockwise)
+ * The opposite or twin/pair half edge
+ * For my implementation I also added a pointer to the previous edge which will make traversal easier for finding the boundary edges of a vertex
 
 ```
 struct HalfEdge {
@@ -57,19 +57,36 @@ struct HalfEdge {
 };
 ```
 
-# Traversal
+#### Traversal ####
 
-1. Traversing vertices in a face
+* Traversing vertices in a face
+<p align="center"><img src="https://github.com/fbroom/subdivision-algorithms/blob/master/images/ds-faces.png" width="300"></p>
+```
+HalfEdge *edge = face->edge; // each faces points to an edge 
+do {
+    edge->start = ... // perform an operation on the vertex
+    edge = edge->next;
+} while (edge != face->edge);
+```
 
-2. Traversing adjacent faces
+* Traversing adjacent faces
+<p align="center"><img src="https://github.com/fbroom/subdivision-algorithms/blob/master/images/ds-vertex.png" width="300"></p>
+```
+HalfEdge *edge = vertex ->edge; 
+do {
+    // edge->face // perform an operation on the face
+    edge = edge->pair->next;
+} while (edge != vertex->edge);
+```
 
-3. Traversing a boundary vertex
+
+* Traversing a boundary vertex
 
 
 
-#### Catmull-Clark Subdivision ####
+## Catmull-Clark Subdivision ##
 
-# Algorithm
+#### Algorithm ####
 
 ![alt tag](http://url/to/img.png)
 
@@ -96,11 +113,20 @@ where S and M are:
 
 5. We connect each new vertex v' created in step 3 to the new edge points created in step 2
 
-# Results
+#### Results ####
 
+<p align="center">
+<img src="https://github.com/fbroom/subdivision-algorithms/blob/master/results/catmull/donut/0.png" width="300">
+<img src="https://github.com/fbroom/subdivision-algorithms/blob/master/results/catmull/donut/1.png" width="300">
+<img src="https://github.com/fbroom/subdivision-algorithms/blob/master/results/catmull/donut/2.png" width="300">
+<img src="https://github.com/fbroom/subdivision-algorithms/blob/master/results/catmull/donut/3.png" width="300">
+<img src="https://github.com/fbroom/subdivision-algorithms/blob/master/results/catmull/donut/4.png" width="300">
+<img src="https://github.com/fbroom/subdivision-algorithms/blob/master/results/catmull/donut/5.png" width="300">
+<img src="https://github.com/fbroom/subdivision-algorithms/blob/master/results/catmull/donut/6.png" width="300">
+<img src="https://github.com/fbroom/subdivision-algorithms/blob/master/results/catmull/donut/7.png" width="300">
+</p>
 
-
-#### Loop Subdivision ####
+## Loop Subdivision ##
 
 1. For each edge in the mesh, we generate an edge point E, which is a weighted average of the points in in the figure above. If the edge is a boundary edge then edge point is just the average of the two vertices connected to the edge
 
@@ -117,6 +143,6 @@ v' = 1/4 * (sum of connectedV) + 3/4 * v
 
 
 
-#### Butterfly Subdivision ####
+## Butterfly Subdivision ##
 to be added
 
