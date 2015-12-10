@@ -38,7 +38,6 @@ class SimpleImage;
 //
 // headers.
 //
-#include "lib/SimpleImage.h"
 #include "shaders/SimpleShaderProgram.h"
 #include "platform/findGLUT.h"
 

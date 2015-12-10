@@ -30,8 +30,6 @@
 		2597CEA51B76CF6E00F30A7F /* phong.frag in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA3BC23C1B6ECD85006F25C1 /* phong.frag */; };
 		2597CEA61B76CF6E00F30A7F /* phong.vert in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA3BC23D1B6ECD85006F25C1 /* phong.vert */; };
 		2597CEB31B79095B00F30A7F /* loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2597CEB11B79095B00F30A7F /* loop.cpp */; };
-		BA3BC2391B6ECD3F006F25C1 /* SimpleImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA3BC2341B6ECD3F006F25C1 /* SimpleImage.cpp */; };
-		BA3BC23A1B6ECD3F006F25C1 /* stb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA3BC2361B6ECD3F006F25C1 /* stb.cpp */; };
 		BAE4CB291B74118600ED2CEE /* halfedge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAE4CB271B74118600ED2CEE /* halfedge.cpp */; };
 		BAE4CB2C1B7413D000ED2CEE /* catmullclark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAE4CB2A1B7413D000ED2CEE /* catmullclark.cpp */; };
 		BAE4CB2F1B768F1000ED2CEE /* loaddata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAE4CB2D1B768F1000ED2CEE /* loaddata.cpp */; };
@@ -347,11 +345,6 @@
 		257981071B627C0000D7481F /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 		2597CEB11B79095B00F30A7F /* loop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = loop.cpp; sourceTree = "<group>"; };
 		2597CEB21B79095B00F30A7F /* loop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loop.h; sourceTree = "<group>"; };
-		BA3BC2341B6ECD3F006F25C1 /* SimpleImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleImage.cpp; sourceTree = "<group>"; };
-		BA3BC2351B6ECD3F006F25C1 /* SimpleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleImage.h; sourceTree = "<group>"; };
-		BA3BC2361B6ECD3F006F25C1 /* stb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stb.cpp; sourceTree = "<group>"; };
-		BA3BC2371B6ECD3F006F25C1 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
-		BA3BC2381B6ECD3F006F25C1 /* stb_image_write.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image_write.h; sourceTree = "<group>"; };
 		BA3BC23C1B6ECD85006F25C1 /* phong.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = phong.frag; sourceTree = "<group>"; };
 		BA3BC23D1B6ECD85006F25C1 /* phong.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = phong.vert; sourceTree = "<group>"; };
 		BA3BC2431B6ECD85006F25C1 /* SimpleShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleShaderProgram.h; sourceTree = "<group>"; };
@@ -401,7 +394,6 @@
 				2597CE501B76CEA500F30A7F /* input */,
 				255277031B6461A9001779FC /* glm */,
 				BA3BC2441B6ECE11006F25C1 /* platform */,
-				BA3BC2331B6ECD3F006F25C1 /* lib */,
 				BA3BC23B1B6ECD85006F25C1 /* shaders */,
 				257981071B627C0000D7481F /* main.h */,
 				254778981B58510700083DFF /* main.cpp */,
@@ -727,18 +719,6 @@
 			path = input;
 			sourceTree = "<group>";
 		};
-		BA3BC2331B6ECD3F006F25C1 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				BA3BC2341B6ECD3F006F25C1 /* SimpleImage.cpp */,
-				BA3BC2351B6ECD3F006F25C1 /* SimpleImage.h */,
-				BA3BC2361B6ECD3F006F25C1 /* stb.cpp */,
-				BA3BC2371B6ECD3F006F25C1 /* stb_image.h */,
-				BA3BC2381B6ECD3F006F25C1 /* stb_image_write.h */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
 		BA3BC23B1B6ECD85006F25C1 /* shaders */ = {
 			isa = PBXGroup;
 			children = (
@@ -816,11 +796,9 @@
 			files = (
 				BAE4CB2C1B7413D000ED2CEE /* catmullclark.cpp in Sources */,
 				254778991B58510700083DFF /* main.cpp in Sources */,
-				BA3BC2391B6ECD3F006F25C1 /* SimpleImage.cpp in Sources */,
 				2597CEB31B79095B00F30A7F /* loop.cpp in Sources */,
 				BAE4CB291B74118600ED2CEE /* halfedge.cpp in Sources */,
 				BAE4CB2F1B768F1000ED2CEE /* loaddata.cpp in Sources */,
-				BA3BC23A1B6ECD3F006F25C1 /* stb.cpp in Sources */,
 				2533252E1B59F40300456952 /* util.cpp in Sources */,
 				251E64281B7D032B005325A3 /* butterfly.cpp in Sources */,
 			);
@@ -911,6 +889,7 @@
 			buildSettings = {
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				PRODUCT_NAME = subdivision;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -919,6 +898,7 @@
 			buildSettings = {
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				PRODUCT_NAME = subdivision;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};

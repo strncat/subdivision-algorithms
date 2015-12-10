@@ -69,22 +69,6 @@ void loop_subdivision();
 void buttefly();
 void buttefly_subdivision();
 
-void screenshot() {
-    int w = glutGet(GLUT_WINDOW_WIDTH); int h = glutGet(GLUT_WINDOW_HEIGHT);
-    float out[3 * w * h];
-    RGBColor BG(0,0,0);
-    SimpleImage shot(w, h, BG);
-    glReadPixels(0, 0, w, h, GL_RGB, GL_FLOAT, &out[0]); for (int y = 0; y < h; ++y){
-        for(int x = 0; x < w; ++x){
-            int index = (3 * w * y) + 3*x;
-            float red = out[index];
-            float green = out[index + 1];
-            float blue = out[index + 2]; shot.set(x, h - y,RGBColor(red, green, blue));
-        }
-    }
-    shot.save("screenshot.png");
-}
-
 void DrawWithShader() {
     shader->Bind();
 
@@ -157,7 +141,6 @@ void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     DrawWithShader();
     glutSwapBuffers();
-    screenshot();
 }
 
 void reshape(int w, int h) {
